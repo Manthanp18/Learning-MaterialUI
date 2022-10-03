@@ -20,9 +20,9 @@ const pages = ["Movies", "Tv Shows"];
 
 // const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
-const AppHeader = ({ handleOpenUserMenu }) => {
+const AppHeader = ({}) => {
   return (
-    <AppBar position="fixed">
+    <AppBar position="fixed" sx={{ backgroundColor: "#031320" }}>
       <Container>
         <Toolbar>
           <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
@@ -44,7 +44,7 @@ const AppHeader = ({ handleOpenUserMenu }) => {
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+              <IconButton>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
               </IconButton>
             </Tooltip>

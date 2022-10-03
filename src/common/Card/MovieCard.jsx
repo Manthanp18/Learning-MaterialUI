@@ -7,6 +7,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
 import { PercentageCircle } from "./style";
+import { maxHeight } from "@mui/system";
 
 export default function MovieCard({
   img,
@@ -18,7 +19,13 @@ export default function MovieCard({
 }) {
   const avg = (vote * 100) / 10;
   return (
-    <Card sx={{ maxWidth: 250, height: 290, position: "relative" }}>
+    <Card
+      sx={{
+        maxWidth: 230,
+        height: 290,
+        position: "relative",
+        borderRadius: "8px",
+      }}>
       <CardMedia
         component="img"
         alt="green iguana"
