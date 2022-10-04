@@ -2,12 +2,12 @@ import React from "react";
 import { useGetMovieListQuery } from "../../store/API/movie";
 import Movie from "./Movie";
 export const MovieContainer = () => {
+  // console.log(useGetMovieListQuery());
   const { data, isLoading } = useGetMovieListQuery();
-  // console.log(data);
 
   return (
     <div>
-      <Movie data={data} />
+      <Movie data={data} isLoading={isLoading} />
     </div>
   );
 };

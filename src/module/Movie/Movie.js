@@ -1,9 +1,9 @@
 import React from "react";
 import CardContainer from "../../common/Card/CardContainer";
-const Movie = ({ data }) => {
+const Movie = ({ data, isLoading }) => {
   return (
     <div>
-      <CardContainer data={data} />
+      <CardContainer data={data} isLoading={isLoading} />
     </div>
   );
 };
