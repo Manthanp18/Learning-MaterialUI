@@ -4,6 +4,7 @@ import Movie from "./Movie";
 export const MovieContainer = () => {
   const { data, isLoading } = useGetMovieListQuery();
   // console.log(data);
+
   return (
     <div>
       <Movie data={data} />

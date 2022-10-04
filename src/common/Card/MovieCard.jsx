@@ -5,6 +5,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import Skeleton from "@mui/material/Typography";
 
 import { PercentageCircle } from "./style";
 import { maxHeight } from "@mui/system";
@@ -16,22 +17,29 @@ export default function MovieCard({
   tvShowDate,
   tvShowName,
   vote,
+  isLoading,
 }) {
   const avg = (vote * 100) / 10;
   return (
     <Card
       sx={{
-        maxWidth: 230,
+        // maxWidth: ,
+        width: "100%",
         height: 290,
         position: "relative",
         borderRadius: "8px",
+        maxWidth: "300px",
       }}>
-      <CardMedia
-        component="img"
-        alt="green iguana"
-        height="180"
-        image={`https://image.tmdb.org/t/p/w300/${img}`}
-      />
+      {isLoading ? (
+        <Skeleton variant="rectangular" width={210} height={118} />
+      ) : (
+        <CardMedia
+          component="img"
+          alt="green iguana"
+          height="180"
+          image={`https://image.tmdb.org/t/p/w300/${img}`}
+        />
+      )}
       <PercentageCircle
         sx={{
           border: "2px solid green",
@@ -52,7 +60,13 @@ export default function MovieCard({
           sx={{ marginTop: 2 }}>
           {title ? title : tvShowName}
         </Typography>
-        <Typography variant="body2" color="text.secondary">
+        <Typography
+          variant="body3"
+          color="text.secondary"
+          sx={{
+            typography: { sm: "body3", xs: "body3" },
+            letterSpacing: "1px",
+          }}>
           {releaseDate ? releaseDate : tvShowDate}
         </Typography>
       </CardContent>

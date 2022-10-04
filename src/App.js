@@ -5,22 +5,35 @@ import { TvContainer } from "./module/TvShow/TvContainer";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Container } from "@mui/material";
+import { createTheme } from "@mui/material";
+import { ThemeProvider } from "@mui/system";
 
 function App() {
+  const defaultTheme = createTheme();
+  const theme = createTheme({
+    breakpoints: {
+      values: {
+        ...defaultTheme.breakpoints.values,
+        xs: 0,
+        sm: 400,
+        md: 700,
+        lg: 1150,
+      },
+    },
+  });
   return (
-    // <>
-
-    //   <MovieContainer />
-    // </>
     <BrowserRouter>
-      <AppHeaderContainer />
-      <Container>
-        <Routes>
-          <Route path="/" element={<MovieContainer />}></Route>
+      <ThemeProvider theme={theme}>
+        <AppHeaderContainer />
 
-          <Route path="/tv" element={<TvContainer />}></Route>
-        </Routes>
-      </Container>
+        <Container>
+          <Routes>
+            <Route path="/" element={<MovieContainer />}></Route>
+
+            <Route path="/tv" element={<TvContainer />}></Route>
+          </Routes>
+        </Container>
+      </ThemeProvider>
     </BrowserRouter>
   );
 }
