@@ -1,10 +1,22 @@
 import React from "react";
-import CardContainer from "../../common/Card/CardContainer";
+import Grid from "@mui/material/Grid";
+import MovieCard from "../../common/Card/MovieCard";
 const Movie = ({ data, isLoading }) => {
   return (
-    <div>
-      <CardContainer data={data} isLoading={isLoading} />
-    </div>
+    <Grid container spacing={6} paddingY={15} paddingX={3}>
+      {data?.results.map((el, index) => (
+        <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
+          <MovieCard
+            img={el.poster_path}
+            title={el.original_title}
+            releaseDate={el.release_date}
+            tvShowDate={el.first_air_date}
+            tvShowName={el.name}
+            vote={el.vote_average}
+          />
+        </Grid>
+      ))}
+    </Grid>
   );
 };
 

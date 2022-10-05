@@ -1,6 +1,6 @@
 // import "./App.css";
 import { MovieContainer } from "./module/Movie/MovieContainer";
-import AppHeaderContainer from "./common/AppHeader/AppHeaderContainer";
+import AppHeader from "./common/AppHeader/AppHeader";
 import { TvContainer } from "./module/TvShow/TvContainer";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -24,7 +24,7 @@ function App() {
   return (
     <BrowserRouter>
       <ThemeProvider theme={theme}>
-        <AppHeaderContainer />
+        <AppHeader />
 
         <Container>
           <Routes>
